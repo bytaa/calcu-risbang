@@ -23,38 +23,40 @@ Alur kerja kalkulator ini berpusat pada pembaruan nilai pada layar *input* (`#ou
       * Terdapat blok `try...catch` untuk menangani *error* (misalnya, jika ekspresi tidak valid), yang akan menampilkan *alert* "Invalid".
 3.  **Hapus:**
       * Tombol **`Cl`** (Clear) memanggil `Clear()`, yang mengatur nilai *output screen* menjadi kosong (`""`).
-      * Tombol **`DEL`** (Delete) memanggil `del()`. *Namun, **perlu diperhatikan** bahwa implementasi saat ini (`outputscreen.value.slice(0 - 1);`) **tidak berfungsi dengan benar**; seharusnya menggunakan `slice(0, -1)` untuk menghapus karakter terakhir.*
+      * Tombol **`DEL`** (Delete) memanggil `deleteLast()`. *Namun, **perlu diperhatikan** bahwa implementasi saat ini (`outputscreen.value.slice(0 - 1);`) **tidak berfungsi dengan benar**; seharusnya menggunakan `slice(0, -1)` untuk menghapus karakter terakhir.*
 
 📜 Cuplikan Kode Utama (JavaScript)
-Kode di bawah ini adalah inti logika yang mengatur fungsi kalkulator, mulai dari input hingga perhitungan.
+Kode JavaScript mengelola tiga fungsi utama: input, perhitungan, dan penghapusan.
 
+```javascript
+// Menargetkan elemen input display
 let outputscreen = document.getElementById("outputscreen");
 
-// 1. Menampilkan angka/operator yang diklik
+// Fungsi untuk menambahkan angka/operator ke display
 function display(num) {
-    outputscreen.value += num;
+outputscreen.value += num;
 }
 
-// 2. Melakukan perhitungan ekspresi
+// Fungsi untuk melakukan perhitungan
 function Calculate() {
-    try {
-        // Menggunakan eval() untuk mengevaluasi ekspresi
-        outputscreen.value = eval(outputscreen.value);
-    } catch (err) {
-        alert("Invalid"); // Menangani input yang tidak valid
-    }
+try {
+// Menggunakan eval() untuk mengevaluasi ekspresi matematika
+outputscreen.value = eval(outputscreen.value);
+} catch (err) {
+alert("Invalid"); // Menampilkan pesan error jika terjadi kesalahan
+}
 }
 
-// 3. Menghapus seluruh konten display
+// Fungsi untuk menghapus semua input
 function Clear() {
-    outputscreen.value = "";
+outputscreen.value = "";
 }
 
-// 4. Menghapus karakter terakhir
+// Fungsi untuk menghapus karakter terakhir
 function deleteLast() {
-    // Menggunakan slice(0, -1) untuk menghilangkan karakter terakhir
-    outputscreen.value = outputscreen.value.slice(0, -1);
+outputscreen.value = outputscreen.value.slice(0, -1);
 }
+```
 
 ## ⌨️ Contoh Input & Output
 
