@@ -25,37 +25,38 @@ Alur kerja kalkulator ini berpusat pada pembaruan nilai pada layar *input* (`#ou
       * Tombol **`Cl`** (Clear) memanggil `Clear()`, yang mengatur nilai *output screen* menjadi kosong (`""`).
       * Tombol **`DEL`** (Delete) memanggil `del()`. *Namun, **perlu diperhatikan** bahwa implementasi saat ini (`outputscreen.value.slice(0 - 1);`) **tidak berfungsi dengan benar**; seharusnya menggunakan `slice(0, -1)` untuk menghapus karakter terakhir.*
 
-4. 📜 Cuplikan Kode Utama (JavaScript)
-Kode JavaScript mengelola tiga fungsi utama: input, perhitungan, dan penghapusan.
+📜 Cuplikan Kode Utama (JavaScript)
+Kode JavaScript ini menangani seluruh logika interaksi dan perhitungan, mulai dari menampilkan input hingga menjalankan operasi matematika.
 
 JavaScript
 
+// Menargetkan elemen input display
 let outputscreen = document.getElementById("outputscreen");
 
-// 1. Menampilkan angka/operator yang diklik
+// Fungsi untuk menambahkan angka/operator ke display
 function display(num) {
   outputscreen.value += num;
 }
 
-// 2. Melakukan perhitungan ekspresi
+// Fungsi untuk melakukan perhitungan
 function Calculate() {
   try {
-    // Menggunakan eval() untuk mengevaluasi ekspresi
+    // Menggunakan eval() untuk mengevaluasi ekspresi matematika
     outputscreen.value = eval(outputscreen.value);
   } catch (err) {
-    alert("Invalid"); // Menangani input yang tidak valid
+    alert("Invalid"); // Menampilkan pesan error jika terjadi kesalahan
   }
 }
 
-// 3. Menghapus seluruh konten display
+// Fungsi untuk menghapus semua input
 function Clear() {
   outputscreen.value = "";
 }
 
-// 4. Menghapus karakter terakhir
+// Fungsi untuk menghapus karakter terakhir dari input
 function deleteLast() {
-  // Menggunakan slice(0, -1) untuk menghilangkan karakter terakhir
-  outputscreen.value = outputscreen.value.slice(0, -1);
+  // Menggunakan slice(0, -1) untuk menghapus karakter terakhir
+  outputscreen.value = outputscreen.value.slice(0, -1); 
 }
 
 ## ⌨️ Contoh Input & Output
