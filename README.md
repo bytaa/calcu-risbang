@@ -28,8 +28,6 @@ Alur kerja kalkulator ini berpusat pada pembaruan nilai pada layar *input* (`#ou
 📜 Cuplikan Kode Utama (JavaScript)
 Kode JavaScript ini menangani seluruh logika interaksi dan perhitungan, mulai dari menampilkan input hingga menjalankan operasi matematika.
 
-JavaScript
-
 // Menargetkan elemen input display
 let outputscreen = document.getElementById("outputscreen");
 
