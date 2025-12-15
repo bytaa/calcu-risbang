@@ -26,8 +26,6 @@ Alur kerja kalkulator ini berpusat pada pembaruan nilai pada layar *input* (`#ou
       * Tombol **`DEL`** (Delete) memanggil `del()`. *Namun, **perlu diperhatikan** bahwa implementasi saat ini (`outputscreen.value.slice(0 - 1);`) **tidak berfungsi dengan benar**; seharusnya menggunakan `slice(0, -1)` untuk menghapus karakter terakhir.*
 
 ## 📜 Cuplikan Kode Utama (JavaScript)
-
-Kode di bawah menunjukkan fungsi kunci untuk logika perhitungan dan interaksi:
 let outputscreen = document.getElementById("outputscreen");
 
 // 1. Menampilkan angka/operator yang diklik
